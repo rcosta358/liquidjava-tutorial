@@ -50,8 +50,10 @@ Notice that the method `divide` now requires the parameter `b` to be non-zero. I
 
 To follow along with this tutorial, make sure you have the following prerequisites installed:
 
-- Java 20+ - JDK for compiling and running Java programs
-- Maven 3.6+ - For building and dependency management
+- Java 20+, the JDK for compiling and running Java programs
+- Maven 3.6+, for building and dependency management
+- Visual Studio Code, for editing the code and using the LiquidJava extension
+- [Java Extension Pack by Red Hat](vscode:extension/redhat.java), which provides Java support in VS Code
 
 Then, build the project using Maven:
 
