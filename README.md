@@ -48,14 +48,15 @@ Notice that the method `divide` now requires the parameter `b` to be non-zero. I
 
 ### Getting Started with LiquidJava
 
-To follow along with this tutorial, make sure you have the following prerequisites installed:
+To follow along with this tutorial, make sure you have the following installed:
 
 - Visual Studio Code, for editing the code and using the LiquidJava extension
 - [Java Extension Pack by Red Hat](vscode:extension/redhat.java), which provides Java support in VS Code
+- [LiquidJava Extension](vscode:extension/AlcidesFonseca.liquid-java), which provides the LiquidJava typechecker with real-time error reporting and syntax highlighting for the refinements.
 
-Next, install the [LiquidJava VS Code extension](vscode:extension/AlcidesFonseca.liquid-java). This extension provides the LiquidJava typechecker with real-time error reporting and syntax highlighting for the refinements, which we will use throughout this tutorial.
+### Important!
 
-**Important:** Currently, only one error is reported at a time, so an error might not be reported if another one is present! In each part of the tutorial, make sure to fix all errors before moving on to the next one.
+Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**. Also, if you think the extension isn't working correctly, try restarting VS Code using the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Reload Window`.
 
 ## Tutorial
 
