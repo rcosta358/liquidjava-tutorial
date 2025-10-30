@@ -61,7 +61,7 @@ Then, build the project using Maven:
 mvn clean install
 ```
 
-Next, install the LiquidJava VS Code extension [here](vscode:extension/AlcidesFonseca.liquid-java). This extension provides the LiquidJava typechecker with real-time error reporting and syntax highlighting for the refinements, which we will use throughout this tutorial.
+Next, install the [LiquidJava VS Code extension](vscode:extension/AlcidesFonseca.liquid-java). This extension provides the LiquidJava typechecker with real-time error reporting and syntax highlighting for the refinements, which we will use throughout this tutorial.
 
 **Important:** Currently, only one error is reported at a time, so an error might not be reported if another one is present! In each part of the tutorial, make sure to fix all errors before moving on to the next one.
 
