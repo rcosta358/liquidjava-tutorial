@@ -12,7 +12,7 @@ public interface MathRefinements {
 	@Refinement("_ == 2.7182818284590452354")
 	public double E = 0;
 
-    @Refinement("true")
+    @Refinement("arg0 >= 0 ? _ == arg0 : _ == -arg0")
 	public int abs(int arg0);
 
     @Refinement("true")

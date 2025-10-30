@@ -50,16 +50,8 @@ Notice that the method `divide` now requires the parameter `b` to be non-zero. I
 
 To follow along with this tutorial, make sure you have the following prerequisites installed:
 
-- Java 20+, the JDK for compiling and running Java programs
-- Maven 3.6+, for building and dependency management
 - Visual Studio Code, for editing the code and using the LiquidJava extension
 - [Java Extension Pack by Red Hat](vscode:extension/redhat.java), which provides Java support in VS Code
-
-Then, build the project using Maven:
-
-```bash
-mvn clean install
-```
 
 Next, install the [LiquidJava VS Code extension](vscode:extension/AlcidesFonseca.liquid-java). This extension provides the LiquidJava typechecker with real-time error reporting and syntax highlighting for the refinements, which we will use throughout this tutorial.
 
@@ -101,7 +93,7 @@ With this alias, we can replace all occurrences of `@Refinement("_ >= 0")` with 
 
 Now, let's explore how to use **state refinements** to specify and verify properties about the state of an object. Open [ExampleStateRefinements.java](./src/main/java/com/tutorial/part2/ExampleStateRefinements.java). Here, we specify that this object can only be in two states: `a` or `b`. Then, in the constructor, we specify that the initial state is `a`, through the `@StateRefinement` annotation. This annotation allows us to specify in which state the object should be before the method is called (`from`), and in which state it will be after the method execution (`to`). In the constructor, since it's the first method to be called, we can only specify the `to` state.
 
-This object has two methods, also called `a` and `b`. From the state refinements, we can see that the method `a` can only be called when the object is in state `a` transiting to state `b`. Similarly, the method `b` can only be called when the object is in state `b`, transiting to state `a`. This means that we cannot call the same method twice in a row, since it would violate the protocol established by the state refinements. Try uncommenting line 22 to observe the error.
+This object has two methods, `toB` and `toA`. From the state refinements, we can see that the method `toB` can only be called when the object is in state `a` transiting to state `b`. Similarly, the method `toA` can only be called when the object is in state `b`, transiting to state `a`. This means that we cannot call the same method twice in a row, since it would violate the protocol established by the state refinements. Try uncommenting line 22 to observe the error.
 
 #### Exercise
 
@@ -116,7 +108,7 @@ Now, open [ExampleSocketUsage.java](./src/main/java/com/tutorial/part3/ExampleSo
 
 #### Exercise
 
-Now, let's refine another external class. Open [MathRefinements.java](./src/main/java/com/tutorial/part3/exercise/MathRefinements.java). Your task is to replace the `"true"` refinements with the appropriate ones to refine the `java.lang.Math` class. We want to ensure that the `abs` method returns a non-negative value, the `max` method returns the larger of the two arguments, and the `min` method returns the smaller one. To check your implementation, uncomment the code in [MathRefinementsTest.java](./src/main/java/com/tutorial/part3/exercise/MathRefinementsTest.java), which should have no errors after you complete the refinements.
+Now, let's refine another external class. Open [MathRefinements.java](./src/main/java/com/tutorial/part3/exercise/MathRefinements.java). Your task is to replace the `"true"` refinements with the appropriate ones to refine the `java.lang.Math` class. We want to ensure that the `max` method returns the larger of the two arguments and the `min` method returns the smaller one. To check your implementation, uncomment the code in [MathRefinementsTest.java](./src/main/java/com/tutorial/part3/exercise/MathRefinementsTest.java), which should have no errors after you complete the refinements.
 
 ### 4. Ghost Variables
 

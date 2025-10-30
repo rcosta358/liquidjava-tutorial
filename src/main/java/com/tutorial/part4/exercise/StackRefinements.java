@@ -8,6 +8,7 @@ import liquidjava.specification.StateRefinement;
 @Ghost("int count")
 public interface StackRefinements<E> {
 
+	// constructor initializes count to 0 by default
 	public void Stack();
 
 	@StateRefinement(to="true")

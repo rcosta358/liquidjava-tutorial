@@ -10,15 +10,15 @@ public class ExampleStateRefinements {
     public ExampleStateRefinements() {}
 
     @StateRefinement(from="a(this)", to="b(this)")
-    public void a() {}
+    public void toB() {}
 
     @StateRefinement(from="b(this)", to="a(this)")
-    public void b() {}
+    public void toA() {}
 
     public static void main(String[] args) {
         ExampleStateRefinements example = new ExampleStateRefinements();
-        example.a();
-        example.b();
-        // example.b(); // uncomment for error
+        example.toB();
+        example.toA();
+        // example.toA(); // uncomment for error
     }
 }
