@@ -110,9 +110,15 @@ This class simulates a simple bank account with two methods: `deposit` and `with
 
 > Replace the `"true"` refinements with the appropriate ones to ensure the correct behavior of both methods.
 
-For example, we want to ensure that the `balance` and `amount` parameters of both methods are equal or greater than zero and greater than zero, respectively. Also, we want to ensure the correct implementation of both methods — they must return the updated balance after the deposit or withdrawal operations. This also tells the typechecker what the expected output is, allowing it to verify the correctness of the following operations.
+- The `balance` parameter of both methods should be non-negative.
+- The `amount` parameter of the `deposit` method should be greater than zero.
+- The `amount` parameter of the `withdraw` method should be greater than zero and less than or equal to the `balance`.
+- The return value of the `deposit` method should be equal to the sum of `balance` and `amount`.
+- The return value of the `withdraw` method should be equal to the difference between `balance` and `amount`.
 
-With the correct refinements in place, LiquidJava will report an error in the `withdraw` method call, since it tries to withdraw more money than it was deposited. If we instead try to withdraw `10` or less, no error will be reported.
+With the correct refinements in place, LiquidJava will report an error in the `withdraw` method call, since it tries to withdraw more money than it was deposited. 
+
+> Modify the `withdraw` method call to withdraw `10` or less to fix the error.
 
 However, notice that we are repeating the same refinement twice in the `balance` parameter of both methods. For this, we can use a refinement aliases to define commonly used refinements and avoid repetition.
 
@@ -150,7 +156,14 @@ For example, we want to ensure that the `pause` method can only be called when t
 
 ![Media Player DFA](./images/media_player_dfa.png)
 
-With the correct implementation, LiquidJava will report an error in line 30, since we are trying to resume playback when the player is stopped.
+If you get stuck, here are some **hints**:
+
+- Follow the diagram carefully
+- For each edge in the diagram, identify the method that causes that transition and the source and target states
+- If a method is allowed from multiple source states, use the `||` operator to combine them 
+- Don't forget the `(this)` after each state name, since states are always associated with an object instance
+
+With the correct implementation, LiquidJava will report an error in line 30, since we are trying to resume playback when the player is stopped. Fix the error before proceeding.
 
 ### 3. External Refinements
 
@@ -166,7 +179,6 @@ Here, we refine the `Socket` class through state refinements, with the possible 
 
 Here, we see a simple usage of the `Socket` class. If you comment out the line 9 containing with the `bind` method call, LiquidJava will report an error in the `connect` method call, since it violates the state refinement specified for the `Socket` class! Notice that when using the `Socket` class, we don't need to deal with any refinement annotations, since they are already specified in the external refinement interface.
 
-
 #### Exercise
 
 Let's refine another external class.
@@ -177,8 +189,7 @@ We want to ensure that the `lock` method can only be called in the `unlocked` st
 
 ![ReentrantLock DFA](./images/reentrant_lock_dfa.png)
 
-With the correct implementation, LiquidJava will report an error in line 10 of [ReentrantLockExample.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockExample.java), since we are trying to unlock a lock that is not locked.
-
+With the correct implementation, LiquidJava will report an error in line 10 of [ReentrantLockExample.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockExample.java), since we are trying to unlock a lock that is not locked. Remember to fix the error before moving on.
 
 ### 4. Ghost Variables
 
@@ -196,9 +207,16 @@ Here, we can see a simple usage of the refined `ArrayList` class. If you uncomme
 
 #### Exercise
 
-Let's do the same but for the `Stack` class. You may find it useful to look at the previous example for reference.
+Let's do the same but for the `Stack` class.
 
 > Open [StackRefinements.java](./src/main/java/com/tutorial/part4/exercise/StackRefinements.java). Your task is to refine the `Stack` class by replacing the `"true"` refinements with the appropriate ones to ensure the correct behavior of the `push`, `pop` and `peek` methods, using the `count` ghost variable to keep track of the number of elements in the stack, and not allow incorrect uses of these methods — popping or peeking from an empty stack.
+
+If you get stuck, here are some **hints**:
+
+- You may find it useful to look at the previous example for reference
+- The predicates must be boolean expressions
+- You should use the `old` keyword to refer to the previous state of the object
+- You should use the `count` ghost variable in all refinements
 
 With the correct implementation, LiquidJava will report an error in line 11 of [StackExample.java](./src/main/java/com/tutorial/part4/exercise/StackExample.java), since we are trying to pop an element of the stack when it is empty.
 
