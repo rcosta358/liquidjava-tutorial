@@ -12,7 +12,7 @@ public interface SocketRefinements {
 	@StateRefinement(to="unconnected(this)")
 	public void Socket();
 	
-	@StateRefinement(from="unconnected(this)",to="bound(this)")
+	@StateRefinement(from="unconnected(this)", to="bound(this)")
 	public void bind(SocketAddress add);
 	
 	@StateRefinement(from="bound(this)", to="connected(this)")

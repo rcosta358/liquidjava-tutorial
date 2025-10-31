@@ -128,7 +128,9 @@ Let's explore how to use **state refinements** to specify and verify properties 
 
 Here, we specify that this object can only be in two states: `on` or `off`. Then, in the constructor, we specify that the initial state is `off`, through the `@StateRefinement` annotation. This annotation allows us to specify in which state the object should be before the method is called (`from`), and in which state it will be after the method execution (`to`). In the constructor, since it's the first method to be called, we can only specify the `to` state.
 
-This object has two methods, `turnOn` and `turnOff`. From the state refinements, we can see that the method `turnOn` can only be called when the object is in state `off` transiting to state `on`. Similarly, the method `turnOff` can only be called when the object is in state `on`, transiting to state `off`. This means that we cannot call the same method twice in a row, since it would violate the protocol established by the state refinements.
+This object has two methods, `turnOn` and `turnOff`. From the state refinements, we can see that the method `turnOn` can only be called when the object is in state `off` transiting to state `on`. Similarly, the method `turnOff` can only be called when the object is in state `on`, transiting to state `off`. This means that we cannot call the same method twice in a row, since it would violate the protocol established by the state refinements. The following DFA illustrates this:
+
+![Light Bulb DFA](./images/light_bulb_dfa.png)
 
 > Uncomment line 22 to observe the error and then comment it back again.
 
@@ -136,7 +138,9 @@ This object has two methods, `turnOn` and `turnOff`. From the state refinements,
 
 > Open [MediaPlayer.java](./src/main/java/com/tutorial/part2/exercise/MediaPlayer.java). Your task is to replace the `"true"` refinements with the appropriate ones to ensure the correct behavior of the `play`, `pause`, `resume` and `stop` methods, using the `stopped`, `playing`, and `paused` states.
 
-For example, we want to ensure that the `pause` method can only be called when the player is playing, and that the `stop` method can only be called when the player is not stopped (you can use the `!` operator for this).
+For example, we want to ensure that the `pause` method can only be called when the player is playing, and that the `stop` method can only be called when the player is not stopped (you can either use the `!` or the `||` operator for this). The state transitions are represented by the following DFA:
+
+![Media Player DFA](./images/media_player_dfa.png)
 
 With the correct implementation, LiquidJava will report an error in line 30, since we are trying to resume playback when the player is stopped.
 
@@ -146,7 +150,9 @@ To demonstrate the state refinements in a real world scenario, let's learn about
 
 > Open [SocketRefinements.java](./src/main/java/com/tutorial/part3/SocketRefinements.java).
 
-Here, we refine the `Socket` class through state refinements, with the possible states being `unconnected`, `bound`, `connected`, and `closed`. Then, for each method, we specify the allowed state transitions. This way, we can ensure that, for example, the `connect` method can only be called after the `bind` method, and that the `close` method can only be called once.
+Here, we refine the `Socket` class through state refinements, with the possible states being `unconnected`, `bound`, `connected`, and `closed`. Then, for each method, we specify the allowed state transitions. This way, we can ensure that, for example, the `connect` method can only be called after the `bind` method, and that the `close` method can only be called once. The following DFA details the allowed state transitions:
+
+![Socket DFA](./images/socket_dfa.png)
 
 > Open [SocketExample.java](./src/main/java/com/tutorial/part3/SocketExample.java).
 
@@ -159,7 +165,9 @@ Let's refine another external class.
 
 > Open [ReentrantLockRefinements.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockRefinements.java). Your task is to replace the `"true"` refinements with the appropriate ones to refine the `ReentrantLock` class.
 
-We want to ensure that the `lock` method can only be called in the `unlocked` state, and that the `unlock` method can only be called in the `locked` state.
+We want to ensure that the `lock` method can only be called in the `unlocked` state, and that the `unlock` method can only be called in the `locked` state. These transitions are represented by the following DFA:
+
+![ReentrantLock DFA](./images/reentrant_lock_dfa.png)
 
 With the correct implementation, LiquidJava will report an error in line 10 of [ReentrantLockExample.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockExample.java), since we are trying to unlock a lock that is not locked.
 
@@ -173,6 +181,8 @@ Finally, LiquidJava also offers a way to model objects using **ghost variables**
 Here, we define the refinements for the `ArrayList` class, using a ghost variable `size` to keep track of the number of elements in the list. Using the `size` ghost variable in state refinements, we can prevent out-of-bounds access.
 
 In the constructor, we specify that after it is called, the ghost variable `size` will be equal to `0`. This is optional since its default value is already zero, but it helps us understand this example. Then, in the `add` method, we specify that it can be called in any state (since we don't specify a `from` state), and that after it is called, the `size` ghost variable will be incremented by one — the new size will be equal to the old size plus one (`old` is a special keyword that refers to the previous state of the object, so calling `size(old(this))` gets the value of `size` before the method was called). Finally, in the `get` method, we specify that the index parameter must be non-negative and less than the current size of the list, therefore preventing out-of-bounds errors.
+
+The state transitions are represented by the following DFA:
 
 > Open [ArrayListExample.java](./src/main/java/com/tutorial/part4/ArrayListExample.java).
 
