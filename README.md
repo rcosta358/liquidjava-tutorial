@@ -56,7 +56,7 @@ To follow along with this tutorial, make sure you have the following installed:
 
 ### Important!
 
-Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**. Also, if you think the extension isn't working correctly, try restarting the extension the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Restart Extension Host`.
+Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**. Also, if you think the extension isn't working correctly, try restarting the extension with the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Restart Extension Host`.
 
 ## Tutorial
 
