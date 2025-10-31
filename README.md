@@ -58,6 +58,8 @@ To follow along with this tutorial, make sure you have the following installed:
 
 Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**. Also, if you think the extension isn't working correctly, try restarting the extension with the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Restart Extension Host`.
 
+---
+
 ## Tutorial
 
 ### 1. Basic Refinements
@@ -196,6 +198,7 @@ Let's do the same but for the `Stack` class.
 
 With the correct implementation, LiquidJava will report an error in line 11 of [StackExample.java](./src/main/java/com/tutorial/part4/exercise/StackExample.java), since we are trying to pop an element of the stack when it is empty.
 
+---
 
 # References
 
