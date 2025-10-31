@@ -2,7 +2,7 @@ package com.tutorial.part1;
 
 import liquidjava.specification.Refinement;
 
-public class ExampleMethodRefinements {
+public class MethodRefinementExample {
 
     public static int divide(int a, @Refinement("b != 0") int b) {
         return a / b;

@@ -6,16 +6,16 @@ import liquidjava.specification.StateSet;
 import java.net.SocketAddress;
 
 @ExternalRefinementsFor("java.net.Socket")
-@StateSet({"unconnected", "binded", "connected", "closed"})
+@StateSet({"unconnected", "bound", "connected", "closed"})
 public interface SocketRefinements {
 	
 	@StateRefinement(to="unconnected(this)")
 	public void Socket();
 	
-	@StateRefinement(from="unconnected(this)",to="binded(this)")
+	@StateRefinement(from="unconnected(this)",to="bound(this)")
 	public void bind(SocketAddress add);
 	
-	@StateRefinement(from="binded(this)", to="connected(this)")
+	@StateRefinement(from="bound(this)", to="connected(this)")
 	public void connect(SocketAddress add);
 	
 	@StateRefinement(from="connected(this)")

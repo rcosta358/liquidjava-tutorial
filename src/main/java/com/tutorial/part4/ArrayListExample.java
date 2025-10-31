@@ -2,7 +2,7 @@ package com.tutorial.part4;
 
 import java.util.ArrayList;
 
-public class ExampleArrayListUsage {
+public class ArrayListExample {
 
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
