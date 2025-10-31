@@ -200,6 +200,11 @@ With the correct implementation, LiquidJava will report an error in line 11 of [
 
 ---
 
+If you encounter any problems or have any questions, feel free to send an email to:
+
+- [Ricardo Costa](mailto:rcosta.ms358@gmail.com)
+- [Catarina Gamboa](mailto:cgamboa@andrew.cmu.edu)
+
 # References
 
 - [LiquidJava Website](https://catarinagamboa.github.io/liquidjava.html)
