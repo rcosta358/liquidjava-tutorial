@@ -15,7 +15,7 @@ public class RefinementsExample {
         // @Refinement("0 <= _ && _ <= 100")
         int percentage = 200;
 
-        // add refinement for direction variable here
-        // ...
+        // TODO: add refinement to ensure value is either -1 or 1
+        int direction = 0;
     }
 }

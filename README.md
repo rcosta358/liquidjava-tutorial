@@ -72,11 +72,11 @@ First of all, let's explore how basic refinements work in LiquidJava.
 
 > Open [RefinementsExample.java](./src/main/java/com/tutorial/part1/RefinementsExample.java)
 
-Here you can find three variables, `positive`, `nonzero` and `percentage`, with comments containing the refinements that should be used in each one. Notice that `_` can also be used as a placeholder for the variable name in the refinement expression, as shown in the refinement for the `percentage` variable.
+In the `main` method, you can find four variables, `positive`, `nonzero`, `percentage` and `direction`, with three of them containing comments with the refinements that should be used in each one. Notice that `_` can also be used as a placeholder for the variable name in the refinement expression, as shown in the refinement for the `percentage` variable.
 
-> Now, one by one, uncomment the `@Refinement` annotations and observe each error reported.  Remember that only one can be shown at a time. Then, change each value to satisfy the corresponding refinement — change the value of `positive` to a positive integer, the value of `nonzero` to any non-zero integer, and the value of `percentage` to an integer between `0` and `100`.
+> Now, one by one, uncomment the `@Refinement` annotations and observe each error reported. Remember that only one can be shown at a time. Then, change each value to satisfy the corresponding refinement — change the value of `positive` to a positive integer, the value of `nonzero` to any non-zero integer, and the value of `percentage` to an integer between `0` and `100`.
 
-> Then, try to add a new refinement for a variable `direction`, which ensures its value is always either `-1` or `1` (you should use the `||` operator for this).
+> Then, add the refinement for the `direction` variable, which should ensure its value is always either `-1` or `1` (you should use the `||` operator for this). After that, change its value to satisfy the refinement.
 
 As demonstrated previously, we can also refine method parameters and return values.
 
