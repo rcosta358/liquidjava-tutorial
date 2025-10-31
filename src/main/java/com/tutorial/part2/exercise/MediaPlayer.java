@@ -20,4 +20,13 @@ public class MediaPlayer {
 
     @StateRefinement(from="true", to="true")
     public void stop() {}
+
+    public static void main(String[] args) {
+        MediaPlayer player = new MediaPlayer();
+        player.play();
+        player.pause();
+        player.resume();
+        player.stop();
+        player.resume(); // should be an error
+    }
 }
