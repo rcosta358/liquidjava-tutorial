@@ -56,7 +56,11 @@ To follow along with this tutorial, make sure you have the following installed:
 
 ### Important!
 
-Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**. Also, if you think the extension isn't working correctly, try restarting the extension with the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Restart Extension Host`.
+- Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**.
+- It is recommended to enable **auto-save** in VS Code to ensure that the LiquidJava extension always checks the latest version of the code. You can enable it by going to `File > Auto Save`.
+- It is also highly recommended to disable **GitHub Copilot** while following this tutorial, as it might give you the answers to the exercises before you even can think about them.
+- The extension might take a few seconds to verify the code after each change, so be patient while it checks for errors.
+- Lastly, if you think the extension isn't working correctly, try restarting the extension with the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Restart Extension Host` or `Developer: Reload Window`.
 
 ---
 
@@ -68,9 +72,11 @@ First of all, let's explore how basic refinements work in LiquidJava.
 
 > Open [RefinementsExample.java](./src/main/java/com/tutorial/part1/RefinementsExample.java)
 
-Here you can find three variables, `positive`, `nonzero` and `percentage`, with comments containing the refinements that should be used in each one. Remember that only one can be shown at a time. Notice that `_` can also be used as a placeholder for the variable name in the refinement expression, as shown in the refinement for the `percentage` variable.
+Here you can find three variables, `positive`, `nonzero` and `percentage`, with comments containing the refinements that should be used in each one. Notice that `_` can also be used as a placeholder for the variable name in the refinement expression, as shown in the refinement for the `percentage` variable.
 
-> Now, one by one, uncomment the `@Refinement` annotations and observe each error reported. Then, change each value to satisfy the corresponding refinement — change the value of `positive` to a positive integer, the value of `nonzero` to any non-zero integer, and the value of `percentage` to an integer between `0` and `100`.
+> Now, one by one, uncomment the `@Refinement` annotations and observe each error reported.  Remember that only one can be shown at a time. Then, change each value to satisfy the corresponding refinement — change the value of `positive` to a positive integer, the value of `nonzero` to any non-zero integer, and the value of `percentage` to an integer between `0` and `100`.
+
+> Then, try to add a new refinement for a variable `direction`, which ensures its value is always either `-1` or `1` (you should use the `||` operator for this).
 
 As demonstrated previously, we can also refine method parameters and return values.
 
@@ -184,15 +190,13 @@ Here, we define the refinements for the `ArrayList` class, using a ghost variabl
 
 In the constructor, we specify that after it is called, the ghost variable `size` will be equal to `0`. This is optional since its default value is already zero, but it helps us understand this example. Then, in the `add` method, we specify that it can be called in any state (since we don't specify a `from` state), and that after it is called, the `size` ghost variable will be incremented by one — the new size will be equal to the old size plus one (`old` is a special keyword that refers to the previous state of the object, so calling `size(old(this))` gets the value of `size` before the method was called). Finally, in the `get` method, we specify that the index parameter must be non-negative and less than the current size of the list, therefore preventing out-of-bounds errors.
 
-The state transitions are represented by the following DFA:
-
 > Open [ArrayListExample.java](./src/main/java/com/tutorial/part4/ArrayListExample.java).
 
 Here, we can see a simple usage of the refined `ArrayList` class. If you uncomment line 11, LiquidJava will report an error, since we are trying to access an index that is out of bounds!
 
 #### Exercise
 
-Let's do the same but for the `Stack` class.
+Let's do the same but for the `Stack` class. You may find it useful to look at the previous example for reference.
 
 > Open [StackRefinements.java](./src/main/java/com/tutorial/part4/exercise/StackRefinements.java). Your task is to refine the `Stack` class by replacing the `"true"` refinements with the appropriate ones to ensure the correct behavior of the `push`, `pop` and `peek` methods, using the `count` ghost variable to keep track of the number of elements in the stack, and not allow incorrect uses of these methods — popping or peeking from an empty stack.
 
