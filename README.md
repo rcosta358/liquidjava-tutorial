@@ -222,7 +222,7 @@ With the correct implementation, LiquidJava will report an error in line 11 of [
 
 ### 5. Challenge
 
-> Open [Downloader.java](./src/main/java/com/tutorial/part5/Downloader.java). Your task is to refine the `Downloader` class by replacing the `"true"` refinements with the appropriate ones to ensure the correct behavior of the `start`, `updateProgress`, `complete` and `getFile` methods, using the `progress` ghost variable to keep track of the download progress (from `0` to `100`), and not allow incorrect uses of these methods.
+> Open [Downloader.java](./src/main/java/com/tutorial/part5/Downloader.java). Your task is to refine the `Downloader` class by replacing the `"true"` refinements with the appropriate ones to ensure the correct behavior of the `start`, `updateProgress`, `complete` and `getFile` methods, using the `progress` ghost variable to keep track of the download progress (from `0` to `100`), and the `waiting`, `downloading` and `completed` states.
 
 You will have to use most of the concepts learned throughout this tutorial, including refinement aliases, state refinements, and ghost variables. The following DFA illustrates the allowed state transitions:
 
@@ -235,7 +235,7 @@ If you get stuck, here are some **hints**:
 - You should define that the new percentage value in the `updateProgress` method should always be greater than the current `progress` ghost variable value
 - The `getFile` method should only be called when the download is finished
 
-With the correct implementation, LiquidJava should report an error in line 35, since we are trying to complete the download when the progress is not yet `100%`. Simply add a new line that updates the progress to `100` before calling the `complete` method to fix the error.
+With the correct implementation, LiquidJava should report an error in line 35, since we are trying to complete the download when the progress is not yet 100%. Simply add a new line that updates the progress to 100 before calling the `complete` method to fix the error.
 
 ---
 
