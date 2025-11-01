@@ -144,7 +144,7 @@ Here, we specify that this object can only be in two states: `on` or `off`. Then
 
 This object has two methods, `turnOn` and `turnOff`. From the state refinements, we can see that the method `turnOn` can only be called when the object is in state `off` transiting to state `on`. Similarly, the method `turnOff` can only be called when the object is in state `on`, transiting to state `off`. This means that we cannot call the same method twice in a row, since it would violate the protocol established by the state refinements. The following DFA illustrates this:
 
-![Light Bulb DFA](./images/light_bulb_dfa.png)
+![Light Bulb DFA](./docs/images/light_bulb_dfa.png)
 
 > Uncomment line 22 to observe the error and then comment it back again.
 
@@ -154,7 +154,7 @@ This object has two methods, `turnOn` and `turnOff`. From the state refinements,
 
 For example, we want to ensure that the `pause` method can only be called when the player is playing, and that the `stop` method can only be called when the player is not stopped (you can either use the `!` or the `||` operator for this). The state transitions are represented by the following DFA:
 
-![Media Player DFA](./images/media_player_dfa.png)
+![Media Player DFA](./docs/images/media_player_dfa.png)
 
 If you get stuck, here are some **hints**:
 
@@ -173,7 +173,7 @@ To demonstrate the state refinements in a real world scenario, let's learn about
 
 Here, we refine the `Socket` class through state refinements, with the possible states being `unconnected`, `bound`, `connected`, and `closed`. Then, for each method, we specify the allowed state transitions. This way, we can ensure that, for example, the `connect` method can only be called after the `bind` method, and that the `close` method can only be called once. The following DFA details the allowed state transitions:
 
-![Socket DFA](./images/socket_dfa.png)
+![Socket DFA](./docs/images/socket_dfa.png)
 
 > Open [SocketExample.java](./src/main/java/com/tutorial/part3/SocketExample.java).
 
@@ -187,7 +187,7 @@ Let's refine another external class.
 
 We want to ensure that the `lock` method can only be called in the `unlocked` state, and that the `unlock` method can only be called in the `locked` state. These transitions are represented by the following DFA:
 
-![ReentrantLock DFA](./images/reentrant_lock_dfa.png)
+![ReentrantLock DFA](./docs/images/reentrant_lock_dfa.png)
 
 With the correct implementation, LiquidJava will report an error in line 10 of [ReentrantLockExample.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockExample.java), since we are trying to unlock a lock that is not locked. Remember to fix the error before moving on.
 
@@ -224,7 +224,9 @@ With the correct implementation, LiquidJava will report an error in line 11 of [
 
 > Open [Downloader.java](./src/main/java/com/tutorial/part5/Downloader.java). Your task is to refine the `Downloader` class by replacing the `"true"` refinements with the appropriate ones to ensure the correct behavior of the `start`, `updateProgress`, `complete` and `getFile` methods, using the `progress` ghost variable to keep track of the download progress (from `0` to `100`), and not allow incorrect uses of these methods.
 
-You will have to use most of the concepts learned throughout this tutorial, including refinement aliases, state refinements, and ghost variables.
+You will have to use most of the concepts learned throughout this tutorial, including refinement aliases, state refinements, and ghost variables. The following DFA illustrates the allowed state transitions:
+
+![Downloader DFA](./docs/images/downloader_dfa.png)
 
 If you get stuck, here are some **hints**:
 
