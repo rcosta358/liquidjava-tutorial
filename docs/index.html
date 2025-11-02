@@ -62,9 +62,9 @@
 </ul>
 </li>
 <li>
-<p>Liquid types can prevent bugs such as (select multiple):</p>
+<p>Liquid types can prevent bugs which of the following? <strong>(Select all that apply)</strong> </p>
 <ul class="checklist">
-<li><label><input type="checkbox" data-question="0" data-content="1" /> Array index out of bounds</label></li>
+<li><label><input type="checkbox" data-question="0" data-content="1" /> Array index out-of-bounds</label></li>
 <li><label><input type="checkbox" data-question="0" data-content="1" /> Null pointer exceptions</label></li>
 <li><label><input type="checkbox" data-question="1" data-content="0" /> Memory leaks</label></li>
 <li><label><input type="checkbox" data-question="0" data-content="1" /> Division by zero</label></li>
@@ -79,11 +79,14 @@
 <li><label><input type="radio" data-question="0" data-content="1" /> All positive values</label></li>
 </ul>
 </li>
+
 <li>
-<p>In LiquidJava, it's possible to refine method parameters and return values.</p>
-<ul class="radio-list">
-<li><label><input type="radio" data-question="0" data-content="1" /> True</label></li>
-<li><label><input type="radio" data-question="1" data-content="0" /> False</label></li>
+<p>In LiquidJava, which of the following can be refined? <strong>(Select all that apply)</strong></p>
+<ul class="checklist">
+<li><label><input type="checkbox" data-question="0" data-content="1" /> Variables</label></li>
+<li><label><input type="checkbox" data-question="0" data-content="1" /> Parameters</label></li>
+<li><label><input type="checkbox" data-question="0" data-content="1" /> Return values</label></li>
+<li><label><input type="checkbox" data-question="1" data-content="0" /> Imports</label></li>
 </ul>
 </li>
 <li>
@@ -107,10 +110,10 @@
 <li>
 <p>In LiquidJava, what does the following state refinement mean? <code>@StateRefinement(from="!closed(this)", to="closed(this)")</code></p>
 <ul class="radio-list">
-<li><label><input type="radio" data-question="1" data-content="0" /> The method can only be called when the object is closed and will leave it closed.</label></li>
-<li><label><input type="radio" data-question="1" data-content="0" /> The method can only be called when the object is open and will leave it open.</label></li>
-<li><label><input type="radio" data-question="0" data-content="1" /> The method can only be called when the object is not closed and will leave it closed.</label></li>
-<li><label><input type="radio" data-question="1" data-content="0" /> The method can be called in any state and will leave it closed.</label></li>
+<li><label><input type="radio" data-question="1" data-content="0" /> The method can only be called when the object is closed and will leave it closed</label></li>
+<li><label><input type="radio" data-question="1" data-content="0" /> The method can only be called when the object is open and will leave it open</label></li>
+<li><label><input type="radio" data-question="0" data-content="1" /> The method can only be called when the object is not closed and will leave it closed</label></li>
+<li><label><input type="radio" data-question="1" data-content="0" /> The method can be called in any state and will leave it closed</label></li>
 </ul>
 </li>
 <li>
@@ -125,8 +128,8 @@
 <li>
 <p>In LiquidJava, a ghost variable is used to:</p>
 <ul class="radio-list">
-<li><label><input type="radio" data-question="1" data-content="0" /> Store temporary data during method execution</label></li>
-<li><label><input type="radio" data-question="0" data-content="1" /> Represent abstract properties of objects to be used in refinements</label></li>
+<li><label><input type="radio" data-question="1" data-content="0" /> Store temporary data during the program execution</label></li>
+<li><label><input type="radio" data-question="0" data-content="1" /> Model abstract properties of objects for verification purposes</label></li>
 <li><label><input type="radio" data-question="1" data-content="0" /> To track memory usage</label></li>
 <li><label><input type="radio" data-question="1" data-content="0" /> To replace regular variables for better performance</label></li>
 </ul>
@@ -134,9 +137,9 @@
 <li>
 <p>In LiquidJava, which of the following refinements updates the ghost variable <code>size</code>?</p>
 <ul class="radio-list">
-<li><label><input type="radio" data-question="1" data-content="0" /> <code>@Refinement("size = 0")</code></label></li>
+<li><label><input type="radio" data-question="1" data-content="0" /> <code>@Refinement("size(this) = 0")</code></label></li>
 <li><label><input type="radio" data-question="1" data-content="0" /> <code>@StateRefinement(to="size(this) == size(old(this))")</code></label></li>
-<li><label><input type="radio" data-question="1" data-content="0" /> <code>@Refinement("size++")</code></label></li>
+<li><label><input type="radio" data-question="1" data-content="0" /> <code>@Refinement("size(this)++")</code></label></li>
 <li><label><input type="radio" data-question="0" data-content="1" /> <code>@StateRefinement(to="size(this) == size(old(this)) + 1")</code></label></li>
 </ul>
 </li>
