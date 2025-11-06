@@ -12,7 +12,7 @@ public interface StackRefinements<E> {
 	public void Stack();
 
 	@StateRefinement(to="true")
-	public boolean push(E elem);
+	public E push(E elem);
 
 	@StateRefinement(from="true", to="true")
 	public E pop();
