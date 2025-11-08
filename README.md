@@ -54,7 +54,7 @@ To follow along with this tutorial, make sure you have the following installed:
 - [Java Extension Pack by Red Hat](vscode:extension/redhat.java), which provides Java support in VS Code
 - [LiquidJava Extension](vscode:extension/AlcidesFonseca.liquid-java), which provides the LiquidJava typechecker with real-time error reporting and syntax highlighting for the refinements.
 
-> Don't forget to star [LiquidJava](https://github.com/CatarinaGamboa/liquidjava) and its [extension](https://github.com/CatarinaGamboa/vscode-liquidjava) on GitHub! ⭐
+> Don't forget to star [LiquidJava](https://github.com/liquid-java/liquidjava) and its [extension](https://github.com/liquid-java/vscode-liquidjava) on GitHub! ⭐
 
 ### Important!
 
@@ -237,7 +237,7 @@ If you encounter any problems or have any questions, feel free to send an email 
 # References
 
 - [LiquidJava Website](https://catarinagamboa.github.io/liquidjava.html)
-- [LiquidJava Repository](https://github.com/CatarinaGamboa/liquidjava)
-- [LiquidJava VS Code Extension Repository](https://github.com/CatarinaGamboa/vscode-liquidjava)
-- [LiquidJava Examples Repository](https://github.com/CatarinaGamboa/liquidjava-examples)
-- [LiquidJava External Libraries Repository](https://github.com/CatarinaGamboa/liquid-java-external-libs)
+- [LiquidJava Repository](https://github.com/liquid-java/liquidjava)
+- [LiquidJava VS Code Extension Repository](https://github.com/liquid-java/vscode-liquidjava)
+- [LiquidJava Examples Repository](https://github.com/liquid-java/liquidjava-examples)
+- [LiquidJava External Libraries Repository](https://github.com/liquid-java/liquid-java-external-libs)
