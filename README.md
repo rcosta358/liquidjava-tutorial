@@ -56,14 +56,6 @@ To follow along with this tutorial, make sure you have the following installed:
 
 > Don't forget to star [LiquidJava](https://github.com/liquid-java/liquidjava) and its [extension](https://github.com/liquid-java/vscode-liquidjava) on GitHub! ⭐
 
-### Important!
-
-- Currently, **only one error is reported at a time**, so an error might not be reported if another one is present! In each part of the tutorial, **make sure to fix all errors before moving on to the next one**.
-- It is recommended to enable **auto-save** in VS Code to ensure that the LiquidJava extension always checks the latest version of the code. You can enable it by going to `File > Auto Save`.
-- It is also highly recommended to disable **GitHub Copilot** while following this tutorial, as it might give you the answers to the exercises before you even can think about them.
-- The extension might take a few seconds to verify the code after each change, so be patient while it checks for errors.
-- Lastly, if you think the extension isn't working correctly, try restarting the extension with the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and selecting `Developer: Restart Extension Host` or `Developer: Reload Window`.
-
 ---
 
 ## Tutorial
@@ -86,7 +78,7 @@ As demonstrated previously, we can also refine method parameters and return valu
 
 Here, the method `divide` is refined to ensure that the parameter `b` is never zero.
 
-> Try changing the value of the second argument in the `divide` method call to zero and observe the error reported by LiquidJava. Now change it back to a non-zero value.
+> Try changing the value of the second argument in the `divide` method call to zero and observe the error reported by LiquidJava.
 
 But wait, we can also refine the return value of the method! Let's introduce a bug.
 
@@ -101,8 +93,6 @@ No error! Let's fix this.
 ```
 
 Now we get an error! LiquidJava is telling us that the implementation of the method does not satisfy the refinement specified for the return value. This way, we can catch errors not only in the inputs of the methods, but also in their outputs.
-
-> Fix the implementation of the method to return `a / b` again to make the error disappear.
 
 #### Exercise
 
@@ -148,7 +138,7 @@ This object has two methods, `turnOn` and `turnOff`. From the state refinements,
 
 ![Light Bulb DFA](./docs/images/light_bulb_dfa.png)
 
-> Uncomment line 22 to observe the error and then comment it back again.
+> Uncomment line 22 to observe the error.
 
 #### Exercise
 
@@ -165,7 +155,7 @@ If you get stuck, here are some **hints**:
 - If a method is allowed from multiple source states, use the `||` operator to combine them 
 - Don't forget the `(this)` after each state name, since states are always associated with an object instance
 
-With the correct implementation, LiquidJava will report an error in line 30, since we are trying to resume playback when the player is stopped. Fix the error before proceeding.
+With the correct implementation, LiquidJava will report an error in line 30, since we are trying to resume playback when the player is stopped.
 
 ### 3. External Refinements
 
@@ -191,7 +181,7 @@ We want to ensure that the `lock` method can only be called in the `unlocked` st
 
 ![ReentrantLock DFA](./docs/images/reentrant_lock_dfa.png)
 
-With the correct implementation, LiquidJava will report an error in line 10 of [ReentrantLockExample.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockExample.java), since we are trying to unlock a lock that is not locked. Remember to fix the error before moving on.
+With the correct implementation, LiquidJava will report an error in line 10 of [ReentrantLockExample.java](./src/main/java/com/tutorial/part3/exercise/ReentrantLockExample.java), since we are trying to unlock a lock that is not locked.
 
 ### 4. Ghost Variables
 
