@@ -216,7 +216,7 @@ With the correct implementation, LiquidJava will report an error in line 11 of [
 
 ## Quiz
 
-Test your knowledge about LiquidJava by taking a simple quiz available [here](https://rcosta358.github.io/liquidjava-tutorial/). Think you can get a perfect score?
+Test your knowledge about LiquidJava by taking a simple quiz available [here](https://liquid-java.github.io/liquidjava-tutorial/). Think you can get a perfect score?
 
 
 If you encounter any problems or have any questions, feel free to send an email to:
