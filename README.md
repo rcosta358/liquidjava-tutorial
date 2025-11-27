@@ -96,35 +96,19 @@ Now we get an error! LiquidJava is telling us that the implementation of the met
 
 #### Exercise
 
-> Open [Bank.java](./src/main/java/com/tutorial/part1/exercise/Bank.java).
+> Open [Counter.java](./src/main/java/com/tutorial/part1/exercise/Counter.java).
 
-This class simulates a simple bank account with two methods: `deposit` and `withdraw`. In the `main` method, we simulate a wrong usage of the `deposit` and `withdraw` methods of a bank account, since it tries to withdraw more money than the current balance. Let's make use of LiquidJava refinements to ensure the correct usage of these methods.
+This class simulates a simple counter with two methods: `increment` and `decrement`. In the `main` method, we simulate a wrong usage of the `decrement` method, since it tries to decrement the counter below zero. Let's make use of LiquidJava refinements to ensure the correct usage of these methods.
 
 > Replace the `"true"` refinements with the appropriate ones to ensure the correct behavior of both methods.
 
-- The `balance` parameter of both methods should be non-negative.
-- The `amount` parameter of the `deposit` method should be greater than zero.
-- The `amount` parameter of the `withdraw` method should be greater than zero and less than or equal to the `balance`.
-- The return value of the `deposit` method should be equal to the sum of `balance` and `amount`.
-- The return value of the `withdraw` method should be equal to the difference between `balance` and `amount`.
+- The `count` parameter of the `increment` method should be non-negative.
+- The `count` parameter of the `decrement` method should be greater than zero.
+- The return value of the `increment` method should be equal to `count + 1`.
+- The return value of the `decrement` method should be equal to `count - 1`.
+- Use `_` or `return` to refer to the return value in the refinements.
 
-With the correct refinements in place, LiquidJava will report an error in the `withdraw` method call, since it tries to withdraw more money than it was deposited. 
-
-> Modify the `withdraw` method call to withdraw `10` or less to fix the error.
-
-However, notice that we are repeating the same refinement twice in the `balance` parameter of both methods. For this, we can use a refinement aliases to define commonly used refinements and avoid repetition.
-
-> Add the following lines of code above the class definition:
-
-```java
-import liquidjava.specification.RefinementAlias;
-
-@RefinementAlias("NonNegative(int v) { v >= 0 }")
-```
-
-> Then, replace all occurrences of `@Refinement("_ >= 0")` with `@Refinement("NonNegative(_)")`.
-
-The refinements are now easier to understand, while still providing the same guarantees!
+With the correct refinements in place, LiquidJava will report an error in the second `decrement` method call, since it tries to decrement the counter when it is already zero.
 
 ### 2. State Refinements
 
